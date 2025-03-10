@@ -5,6 +5,9 @@ from django.utils import timezone
 from datetime import datetime
 
 # Create your views here.
+def home(request):
+    return redirect("organizer_dashboard")
+
 def event_list(request):
     events = Event.objects.select_related('category').all()
     return render(request, 'event_list.html', {'events': events})
